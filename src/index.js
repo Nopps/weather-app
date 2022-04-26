@@ -66,6 +66,28 @@ function showTemp(response) {
   elementIcon.setAttribute("src", `src/${icon}.svg`);
 
   searchCity.value = city;
+
+  // Get city photo
+
+  function getImgData(response) {
+    let imgUrl = response.data.results[0].urls.regular;
+    let photographer = response.data.results[0].user.name;
+    let profileUrl = response.data.results[0].user.links.html;
+
+    let elementBgImg = document.querySelector("#bg-img");
+    let elementPhotographer = document.querySelector("#photographer");
+    let elementProfileUrl = document.querySelector("#profile-url");
+    let elementCityImg = document.querySelector("#city-photo");
+
+    elementBgImg.setAttribute("style", `background-image: url(${imgUrl});`);
+    elementCityImg.innerHTML = city;
+    elementPhotographer.innerHTML = photographer;
+    elementProfileUrl.setAttribute("href", profileUrl);
+  }
+
+  let query = city.toLowerCase();
+  let apiUrl = `https://unsplash.farnsworth.ch/api/f149a8/?query=${query}`;
+  axios.get(apiUrl).then(getImgData);
 }
 
 function getCity(event) {
@@ -99,8 +121,8 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocationWeather);
 }
 
-let cityLocation = document.querySelector("#button-locate");
-cityLocation.addEventListener("click", getLocation);
+let locate = document.querySelector("#button-locate");
+locate.addEventListener("click", getLocation);
 
 // Convert temperature
 

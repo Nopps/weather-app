@@ -17,8 +17,11 @@
   <body class="bg-light">
     <div class="container bg-white border p-0 mt-3" style="max-width: 500px">
       <div
-        class="container bg-info bg-gradient p-4"
-        style="--bs-bg-opacity: 0.5"
+        id="bg-img"
+        class="container bg-img p-4"
+        style="
+          background-image: url(src/clouds.jpg);
+        "
       >
         <div class="row">
           <div class="col-5 box box--location-time">
@@ -190,8 +193,13 @@
         >Weather data:
         <a href="https://openweathermap.org/" target="_blank" rel="noreferrer"
           >OpenWeatherMap</a
-        >
+        > | Photos:
+        <a href="https://unsplash.com/" target="_blank">Unsplash</a>
       </span>
+      <span
+        >Photo of <span id="city-photo">clouds</span> was taken by <a href="https://unsplash.com/@alexmachado" id="profile-url" target="_blank"><span id="photographer">Alex Machado</span></a>
+        </a></span
+      >
     </div>
     <script src="src/index.js"></script>
   </body>
