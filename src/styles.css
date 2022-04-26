@@ -1,0 +1,55 @@
+body {
+  color: #054b5e;
+}
+
+.temperature--value {
+  font-size: 6.5rem;
+  margin-right: 0.5rem;
+  line-height: 1;
+}
+
+.temperature--unit {
+  font-size: 1.5rem;
+  opacity: 0.6;
+  text-decoration: none;
+  color: #054b5e;
+}
+
+/*.temperature--unit:last-child {
+  border-left: 1px solid #054b5e4d;
+  margin-left: 0.5rem;
+  padding-left: 0.5rem;
+}*/
+
+.temperature--unit:hover:not(.unit--active) {
+  opacity: 1;
+  color: #054b5e;
+}
+
+.unit--active {
+  font-weight: 700;
+  opacity: 1;
+}
+
+.unit--active:hover {
+  cursor: auto;
+  color: #054b5e;
+}
+
+.temperature--next {
+  font-size: 2rem;
+}
+
+.icon--location {
+  width: 1.3rem;
+  margin-right: 0.3rem;
+}
+
+.icon--today {
+  width: 12rem;
+  opacity: 0.9;
+}
+
+.icon--next {
+  width: 4rem;
+}
