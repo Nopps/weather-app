@@ -41,10 +41,13 @@ elemementDateTime.innerHTML = formatDate(currentDateTime);
 
 // Show weather for searched city
 
-function showTemp(response) {
-  let city = response.data.name;
+let city = "";
+let temp = "";
+
+function handleResultsForCity(response) {
+  city = response.data.name;
+  temp = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
-  let temp = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
   let windspeed = Math.round(response.data.wind.speed) / 10;
   let icon = response.data.weather[0].icon;
@@ -66,25 +69,28 @@ function showTemp(response) {
   elementIcon.setAttribute("src", `src/${icon}.svg`);
 
   searchCity.value = city;
+  imgQuery();
+}
 
-  // Get city photo
+// Get city photo
 
-  function getImgData(response) {
-    let imgUrl = response.data.results[0].urls.regular;
-    let photographer = response.data.results[0].user.name;
-    let profileUrl = response.data.results[0].user.links.html;
+function getImgData(response) {
+  let imgUrl = response.data.results[0].urls.regular;
+  let photographer = response.data.results[0].user.name;
+  let profileUrl = response.data.results[0].user.links.html;
 
-    let elementBgImg = document.querySelector("#bg-img");
-    let elementPhotographer = document.querySelector("#photographer");
-    let elementProfileUrl = document.querySelector("#profile-url");
-    let elementCityImg = document.querySelector("#city-photo");
+  let elementBgImg = document.querySelector("#bg-img");
+  let elementPhotographer = document.querySelector("#photographer");
+  let elementProfileUrl = document.querySelector("#profile-url");
+  let elementCityImg = document.querySelector("#city-photo");
 
-    elementBgImg.setAttribute("style", `background-image: url(${imgUrl});`);
-    elementCityImg.innerHTML = city;
-    elementPhotographer.innerHTML = photographer;
-    elementProfileUrl.setAttribute("href", profileUrl);
-  }
+  elementBgImg.setAttribute("style", `background-image: url(${imgUrl});`);
+  elementCityImg.innerHTML = city;
+  elementPhotographer.innerHTML = photographer;
+  elementProfileUrl.setAttribute("href", profileUrl);
+}
 
+function imgQuery() {
   let query = city.toLowerCase();
   let apiUrl = `https://unsplash.farnsworth.ch/api/f149a8/?query=${query}`;
   axios.get(apiUrl).then(getImgData);
@@ -98,7 +104,7 @@ function getCity(event) {
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndPoint}?q=${city}&appid=${apiKey}&units=${unit}`;
 
-  axios.get(apiUrl).then(showTemp);
+  axios.get(apiUrl).then(handleResultsForCity);
 }
 
 let searchCity = document.querySelector("#city-search-form");
@@ -114,21 +120,22 @@ function getLocationWeather(position) {
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndPoint}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   console.log(apiUrl);
-  axios.get(apiUrl).then(showTemp);
+  axios.get(apiUrl).then(handleResultsForCity);
 }
 
 function getLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocationWeather);
 }
 
+window.addEventListener("load", getLocation);
 let locate = document.querySelector("#button-locate");
 locate.addEventListener("click", getLocation);
 
 // Convert temperature
 
-/* function convertC2F() {
-  let temperatureValue = document.querySelector("#temperature-value").innerText;
-  let conversion = Math.round(temperatureValue * 1.8 + 32);
+function convertC2F(event) {
+  event.preventDefault();
+  let conversion = Math.round(temp * 1.8 + 32);
   let elementTemperature = document.querySelector("#temperature-value");
   elementTemperature.innerHTML = conversion;
   let buttonF = document.querySelector("#click-fahrenheit");
@@ -140,11 +147,10 @@ locate.addEventListener("click", getLocation);
 let buttonF = document.querySelector("#click-fahrenheit");
 buttonF.addEventListener("click", convertC2F);
 
-function convertF2C() {
-  let temperatureValue = document.querySelector("#temperature-value").innerText;
-  let conversion = Math.round((temperatureValue - 32) * 0.5556);
+function convertF2C(event) {
+  event.preventDefault();
   let elementTemperature = document.querySelector("#temperature-value");
-  elementTemperature.innerHTML = conversion;
+  elementTemperature.innerHTML = temp;
   let buttonF = document.querySelector("#click-fahrenheit");
   let buttonC = document.querySelector("#click-celcius");
   buttonF.classList.remove("unit--active");
@@ -152,4 +158,4 @@ function convertF2C() {
 }
 
 let buttonC = document.querySelector("#click-celcius");
-buttonC.addEventListener("click", convertF2C); */
+buttonC.addEventListener("click", convertF2C);
