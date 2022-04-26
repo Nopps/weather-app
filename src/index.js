@@ -51,9 +51,11 @@ function showTemp(response) {
   let city = response.data.name;
   let elementCity = document.querySelector("#element-city");
   elementCity.innerHTML = city;
+  let searchCity = document.querySelector("#input-city");
+  searchCity.value = city;
 }
 
-function displayCity(event) {
+function getCity(event) {
   event.preventDefault();
   let city = document.querySelector("#input-city").value;
   let apiKey = "c27d962bdd519287d55f21aff23bb4a0";
@@ -65,11 +67,11 @@ function displayCity(event) {
 }
 
 let searchCity = document.querySelector("#city-search-form");
-searchCity.addEventListener("submit", displayCity);
+searchCity.addEventListener("submit", getCity);
 
 // Show weather for located city
 
-function handlePosition(position) {
+function getLocationWeather(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let units = "metric";
@@ -81,7 +83,7 @@ function handlePosition(position) {
 }
 
 function locateCity(event) {
-  navigator.geolocation.getCurrentPosition(handlePosition);
+  navigator.geolocation.getCurrentPosition(getLocationWeather);
 }
 
 let cityLocation = document.querySelector("#button-locate");

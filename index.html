@@ -23,7 +23,6 @@
         <div class="row">
           <div class="col-5">
             <span class="d-flex align-items-baseline">
-              <img src="src/icon_location.svg" class="icon--location" />
               <h1 id="element-city">Zürich</h1>
             </span>
             <span id="current-time"></span>
@@ -34,21 +33,27 @@
                 type="text"
                 class="form-control"
                 id="input-city"
-                placeholder="Check another city"
+                placeholder="Enter city"
                 aria-describedby="button-search"
                 autocomplete="off"
               />
-              <button class="btn btn-primary" type="submit" id="button-search">
-                Search
+              <button
+                class="btn btn-link"
+                type="button"
+                id="button-locate"
+                aria-label="Find my location"
+              >
+                <img src="src/icon_locate.svg" class="icon--locate" />
+              </button>
+              <button
+                class="btn btn-primary"
+                type="submit"
+                id="button-search"
+                aria-label="Search city"
+              >
+                <img src="src/icon_search.svg" class="icon--search" />
               </button>
             </form>
-            <button
-              class="btn btn-outline-primary"
-              type="submit"
-              id="button-locate"
-            >
-              Locate
-            </button>
           </div>
         </div>
         <div class="row d-flex align-items-end mt-4">
@@ -81,7 +86,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">17ºc</span>
-              <img src="src/icon_sunny.svg" class="icon--next" />
+              <img src="src/weather-icon_sunny.svg" class="icon--next" />
             </div>
           </div>
         </div>
@@ -95,7 +100,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">16ºc</span>
-              <img src="src/icon_sunny.svg" class="icon--next" />
+              <img src="src/weather-icon_sunny.svg" class="icon--next" />
             </div>
           </div>
         </div>
@@ -109,7 +114,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">16ºc</span>
-              <img src="src/icon_cloudy-sunny.svg" class="icon--next" />
+              <img src="src/weather-icon_cloudy-sunny.svg" class="icon--next" />
             </div>
           </div>
         </div>
@@ -123,7 +128,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">16ºc</span>
-              <img src="src/icon_cloudy-sunny.svg" class="icon--next" />
+              <img src="src/weather-icon_cloudy-sunny.svg" class="icon--next" />
             </div>
           </div>
         </div>
@@ -137,7 +142,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">16ºc</span>
-              <img src="src/icon_sunny.svg" class="icon--next" />
+              <img src="src/weather-icon_sunny.svg" class="icon--next" />
             </div>
           </div>
         </div>
@@ -147,14 +152,19 @@
       class="container d-flex flex-column justify-content-center py-4 text-center font-monospace small"
     >
       <span
-        ><a href="https://github.com/Nopps/weather-app" target="_blank" rel="noreferrer"
+        ><a
+          href="https://github.com/Nopps/weather-app"
+          target="_blank"
+          rel="noreferrer"
           >Open-source code</a
         >
         by Noora S.
       </span>
       <span
         >Weather data:
-        <a href="https://openweathermap.org/" target="_blank rel="noreferrer"">OpenWeatherMap</a>
+        <a href="https://openweathermap.org/" target="_blank" rel="noreferrer"
+          >OpenWeatherMap</a
+        >
       </span>
     </div>
     <script src="src/index.js"></script>

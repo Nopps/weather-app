@@ -1,1 +1,11 @@
-<?xml version="1.0" ?><svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.414,24.586l-5.077-5.077C23.386,17.928,24,16.035,24,14c0-5.514-4.486-10-10-10S4,8.486,4,14  s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0  C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z" id="XMLID_223_"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Glyph" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<path id="XMLID_223_" class="st0" d="M29.3,24l-5.9-5.9c1.2-1.8,1.9-4.1,1.9-6.4C25.3,5.2,20.1,0,13.7,0S2,5.2,2,11.7
+	s5.2,11.7,11.7,11.7c2.4,0,4.6-0.7,6.4-1.9l5.9,5.9c0.9,0.9,2.4,0.9,3.3,0C30.2,26.4,30.2,24.9,29.3,24z M5.5,11.7
+	c0-4.5,3.7-8.2,8.2-8.2s8.2,3.7,8.2,8.2s-3.7,8.2-8.2,8.2S5.5,16.2,5.5,11.7z"/>
+</svg>

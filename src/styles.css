@@ -2,6 +2,54 @@ body {
   color: #054b5e;
 }
 
+/* City Search */
+
+#city-search-form .form-control {
+  border-radius: 1.2rem 0 0 1.2rem;
+  font-size: 0.85rem;
+  padding-left: 1rem;
+  border: none;
+}
+
+#city-search-form .btn-link {
+  background-color: #fff;
+  padding: 0.2rem;
+}
+
+#city-search-form .btn-link:hover .icon--locate {
+  opacity: 0.7;
+}
+
+#city-search-form :focus {
+  box-shadow: none;
+}
+
+#city-search-form .btn .icon--locate {
+  opacity: 0.4;
+  width: 1.1rem;
+  margin-right: 0.5rem;
+}
+
+#city-search-form .btn-primary {
+  border-radius: 0 1.2rem;
+}
+
+#city-search-form:after {
+  /* continuos white input bg with funky primary button */
+  content: "";
+  background-color: #fff;
+  height: 1rem;
+  width: 3rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+}
+
+#city-search-form .btn .icon--search {
+  width: 1.1rem;
+}
+
 .temperature--value {
   font-size: 6.5rem;
   margin-right: 0.5rem;
@@ -38,11 +86,6 @@ body {
 
 .temperature--next {
   font-size: 2rem;
-}
-
-.icon--location {
-  width: 1.3rem;
-  margin-right: 0.3rem;
 }
 
 .icon--today {
