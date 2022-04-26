@@ -135,6 +135,18 @@ button:focus {
   opacity: 1;
 }
 
+/* Footer creds */
+
+.footer span {
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+}
+
+hr {
+  width: 5rem;
+  margin: 0.5rem auto;
+}
+
 /* ------------ END NEW CUSTOM CSS -------------- */
 
 .temperature--next {
