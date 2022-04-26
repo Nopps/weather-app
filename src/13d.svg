@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#C6DEFF;stroke:#FFFFFF;stroke-width:1.2;stroke-linejoin:round;}
+	.st1{fill:none;stroke:#C6DEFF;stroke-width:1.2;stroke-linecap:round;}
+	.st2{fill:none;stroke:#C6DEFF;stroke-linecap:round;}
+</style>
+<g id="snowy-5">
+	<g transform="translate(20,10)">
+		<g>
+			<path class="st0" d="M13.5,7.2c0-3.9-3.2-7-7-7c-0.9,0-1.6,0.2-2.4,0.4C3.8-2.4,1.5-4.8-1.5-4.8c-3.2,0-5.7,2.6-5.7,5.7
+				c0,0.7,0.2,1.4,0.3,2c-0.3-0.1-0.6-0.1-0.9-0.1c-3.2,0-5.7,2.6-5.7,5.7s2.5,5.7,5.6,5.7H6.8C10.5,14,13.5,11,13.5,7.2z"/>
+		</g>
+		<g>
+			<g transform="translate(7,28)">
+				<line class="st1" x1="-13.5" y1="-10.9" x2="-13.5" y2="-3.2"/>
+				<line class="st2" x1="-10.8" y1="-9.9" x2="-16.2" y2="-4.4"/>
+				<line class="st2" x1="-9.6" y1="-7.1" x2="-17.4" y2="-7.1"/>
+				<line class="st2" x1="-10.8" y1="-4.4" x2="-16.2" y2="-9.9"/>
+			</g>
+		</g>
+		<g>
+			<g transform="translate(16,28)">
+				<line class="st2" x1="-11.8" y1="-12.4" x2="-11.8" y2="-4.6"/>
+				<line class="st2" x1="-9.1" y1="-11.2" x2="-14.5" y2="-5.8"/>
+				<line class="st2" x1="-7.9" y1="-8.6" x2="-15.6" y2="-8.6"/>
+				<line class="st2" x1="-9.1" y1="-5.8" x2="-14.5" y2="-11.2"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

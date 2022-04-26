@@ -60,7 +60,7 @@ button:focus {
   color: #fff;
 }*/
 
-/* Weather today */
+/* Weather current */
 
 .temperature--value {
   font-size: 5.5rem;
@@ -68,7 +68,12 @@ button:focus {
   line-height: 1;
 }
 
-.weather-data {
+.weather-description {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.weather-description:first-letter {
+  text-transform: uppercase;
 }
 
 .weather-data-item {
@@ -81,7 +86,7 @@ button:focus {
   margin-right: 0.5rem;
 }
 
-.icon--today {
+.icon--current {
   width: 11rem;
 }
 

@@ -43,16 +43,18 @@ elemementDateTime.innerHTML = formatDate(currentDateTime);
 
 function showTemp(response) {
   let city = response.data.name;
-  let description = response.data.weather[0].main;
+  let description = response.data.weather[0].description;
   let temp = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
   let windspeed = Math.round(response.data.wind.speed) / 10;
+  let icon = response.data.weather[0].icon;
 
   let elementCity = document.querySelector("#element-city");
   let elementDescription = document.querySelector("#weather-description");
   let elementTemp = document.querySelector("#temperature-value");
   let elementHumidity = document.querySelector("#humidity-value");
   let elementWindspeed = document.querySelector("#windspeed-value");
+  let elementIcon = document.querySelector("#icon-current");
 
   let searchCity = document.querySelector("#input-city");
 
@@ -61,6 +63,7 @@ function showTemp(response) {
   elementTemp.innerHTML = temp;
   elementHumidity.innerHTML = `${humidity} %`;
   elementWindspeed.innerHTML = `${windspeed} m/s`;
+  elementIcon.setAttribute("src", `src/${icon}.svg`);
 
   searchCity.value = city;
 }

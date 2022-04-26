@@ -36,6 +36,7 @@
                 placeholder="Enter city"
                 aria-describedby="button-search"
                 autocomplete="off"
+                autofocus="on"
               />
               <button
                 class="btn btn-link"
@@ -58,7 +59,9 @@
         </div>
         <div class="row d-flex align-items-end mt-4">
           <div class="col-6 box box--current-weather">
-            <span class="fw-bold" id="weather-description">Mostly sunny</span>
+            <p class="weather-description" id="weather-description">
+              mostly sunny
+            </p>
             <div class="temperature d-flex align-items-center">
               <h2 class="temperature--value" id="temperature-value">20</h2>
               <div
@@ -94,7 +97,7 @@
             </div>
           </div>
           <div class="col-6 d-flex flex-row-reverse">
-            <img src="src/weather-icon_sunny.svg" class="icon--today" />
+            <img src="src/01d.svg" id="icon-current" class="icon--current" />
           </div>
         </div>
       </div>
@@ -109,7 +112,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">17ºc</span>
-              <img src="src/weather-icon_sunny.svg" class="icon--next" />
+              <img src="src/02d.svg" class="icon--next" />
             </div>
           </div>
         </div>
@@ -123,7 +126,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">16ºc</span>
-              <img src="src/weather-icon_sunny.svg" class="icon--next" />
+              <img src="src/03d.svg" class="icon--next" />
             </div>
           </div>
         </div>
@@ -137,7 +140,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">16ºc</span>
-              <img src="src/weather-icon_cloudy-sunny.svg" class="icon--next" />
+              <img src="src/11d.svg" class="icon--next" />
             </div>
           </div>
         </div>
@@ -151,7 +154,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">16ºc</span>
-              <img src="src/weather-icon_cloudy-sunny.svg" class="icon--next" />
+              <img src="src/13d.svg" class="icon--next" />
             </div>
           </div>
         </div>
@@ -165,7 +168,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-evenly">
               <span class="align-middle temperature--next">16ºc</span>
-              <img src="src/weather-icon_sunny.svg" class="icon--next" />
+              <img src="src/50d.svg" class="icon--next" />
             </div>
           </div>
         </div>
