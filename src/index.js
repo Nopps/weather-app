@@ -58,6 +58,7 @@ function showTemp(response) {
 
   elementCity.innerHTML = city;
   elementDescription.innerHTML = description;
+  elementTemp.innerHTML = temp;
   elementHumidity.innerHTML = `${humidity} %`;
   elementWindspeed.innerHTML = `${windspeed} m/s`;
 
