@@ -82,12 +82,12 @@ function getLocationWeather(position) {
   axios.get(apiUrl).then(showTemp);
 }
 
-function locateCity(event) {
+function getLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocationWeather);
 }
 
 let cityLocation = document.querySelector("#button-locate");
-cityLocation.addEventListener("click", locateCity);
+cityLocation.addEventListener("click", getLocation);
 
 // Convert temperature
 

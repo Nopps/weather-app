@@ -2,6 +2,11 @@ body {
   color: #054b5e;
 }
 
+input:focus,
+button:focus {
+  box-shadow: none !important;
+}
+
 /* City Search */
 
 #city-search-form .form-control {
@@ -18,10 +23,6 @@ body {
 
 #city-search-form .btn-link:hover .icon--locate {
   opacity: 0.7;
-}
-
-#city-search-form :focus {
-  box-shadow: none;
 }
 
 #city-search-form .btn .icon--locate {
@@ -50,47 +51,68 @@ body {
   width: 1.1rem;
 }
 
+/* Box elements 
+
+.box {
+  background-color: rgb(0 0 0 / 30%);
+  border-radius: 1.35rem;
+  padding: 1rem 1.5rem;
+  color: #fff;
+}*/
+
+/* Weather today */
+
 .temperature--value {
-  font-size: 6.5rem;
+  font-size: 5.5rem;
   margin-right: 0.5rem;
   line-height: 1;
 }
 
-.temperature--unit {
-  font-size: 1.5rem;
-  opacity: 0.6;
-  text-decoration: none;
-  color: #054b5e;
+.weather-data {
 }
 
-/*.temperature--unit:last-child {
-  border-left: 1px solid #054b5e4d;
-  margin-left: 0.5rem;
-  padding-left: 0.5rem;
-}*/
-
-.temperature--unit:hover:not(.unit--active) {
-  opacity: 1;
-  color: #054b5e;
+.weather-data-item {
+  margin-right: 1rem;
 }
 
-.unit--active {
-  font-weight: 700;
-  opacity: 1;
-}
-
-.unit--active:hover {
-  cursor: auto;
-  color: #054b5e;
-}
-
-.temperature--next {
-  font-size: 2rem;
+.icon--humidity,
+.icon--windspeed {
+  width: 1.5rem;
+  margin-right: 0.5rem;
 }
 
 .icon--today {
-  width: 12rem;
-  opacity: 0.9;
+  width: 11rem;
+}
+
+/* Temperature unit switcher */
+
+.unit-switcher {
+  margin-top: 1.5rem;
+}
+
+.unit-switcher .btn {
+  opacity: 0.6;
+  border-radius: 0.8rem;
+  background: rgb(0 0 0 / 20%);
+  border: rgb(0 0 0 / 20%);
+  font-weight: bold;
+  margin: 0 0.1rem;
+}
+
+.unit-switcher .btn:hover {
+  background: rgb(0 0 0 / 25%);
+  border: rgb(0 0 0 / 25%);
+}
+
+.unit-switcher .btn.unit--active {
+  opacity: 1;
+}
+
+/* ------------ END NEW CUSTOM CSS -------------- */
+
+.temperature--next {
+  font-size: 2rem;
 }
 
 .icon--next {
