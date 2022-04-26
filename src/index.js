@@ -42,16 +42,25 @@ elemementDateTime.innerHTML = formatDate(currentDateTime);
 // Show weather for searched city
 
 function showTemp(response) {
-  let temp = Math.round(response.data.main.temp);
-  let elementTemp = document.querySelector("#temperature-value");
-  elementTemp.innerHTML = temp;
-  let description = response.data.weather[0].main;
-  let elementDescription = document.querySelector("#weather-description");
-  elementDescription.innerHTML = description;
   let city = response.data.name;
+  let description = response.data.weather[0].main;
+  let temp = Math.round(response.data.main.temp);
+  let humidity = response.data.main.humidity;
+  let windspeed = Math.round(response.data.wind.speed) / 10;
+
   let elementCity = document.querySelector("#element-city");
-  elementCity.innerHTML = city;
+  let elementDescription = document.querySelector("#weather-description");
+  let elementTemp = document.querySelector("#temperature-value");
+  let elementHumidity = document.querySelector("#humidity-value");
+  let elementWindspeed = document.querySelector("#windspeed-value");
+
   let searchCity = document.querySelector("#input-city");
+
+  elementCity.innerHTML = city;
+  elementDescription.innerHTML = description;
+  elementHumidity.innerHTML = `${humidity} %`;
+  elementWindspeed.innerHTML = `${windspeed} m/s`;
+
   searchCity.value = city;
 }
 
