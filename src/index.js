@@ -39,6 +39,36 @@ function formatDate(dateInput) {
 let elemementDateTime = document.querySelector("#current-time");
 elemementDateTime.innerHTML = formatDate(currentDateTime);
 
+// Forecast 5 days
+
+function displayForecast() {
+  let elementForecast = document.querySelector("#forecast");
+  let forecastHTML = "";
+  let days = ["Tomorrow", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-6">
+          <div class="card-body">
+            <h3 class="card-title">${day}</h3>
+            <p class="card-text">Sat 16.04.</p>
+          </div>
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-evenly">
+          <span class="align-middle temperature--next">17ºc</span>
+          <img src="src/02d.svg" class="icon--next" />
+        </div>
+      </div>
+    </div>
+  `;
+  });
+
+  elementForecast.innerHTML = forecastHTML;
+}
+
 // Show weather for searched city
 
 let city = "";
@@ -127,7 +157,7 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocationWeather);
 }
 
-window.addEventListener("load", getLocation);
+//window.addEventListener("load", getLocation);
 let locate = document.querySelector("#button-locate");
 locate.addEventListener("click", getLocation);
 
@@ -159,3 +189,5 @@ function convertF2C(event) {
 
 let buttonC = document.querySelector("#click-celcius");
 buttonC.addEventListener("click", convertF2C);
+
+displayForecast();
