@@ -1,10 +1,31 @@
 body {
-  color: #054b5e;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+h1.loading-small {
+  font-size: 2rem;
+}
+
+h3.card-title {
+  margin-bottom: 0.2rem;
+  font-weight: 400;
 }
 
 input:focus,
 button:focus {
   box-shadow: none !important;
+}
+
+.app-container {
+  background: #f1f0ee;
+  border-radius: 2.5rem;
 }
 
 .bg-img > .row {
@@ -14,7 +35,11 @@ button:focus {
 
 .bg-img {
   background-size: cover;
-  position: relative;
+  clip-path: ellipse(110% 70% at 50% 30%);
+  height: 18rem;
+  width: 498px;
+  background-position-y: center;
+  border-radius: 2.5rem;
 }
 
 .bg-img:before {
@@ -24,17 +49,44 @@ button:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(120deg, #000000, #00000040);
-  opacity: 0.7;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    354deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0) 40%
+  );
+}
+
+/* Box elements */
+
+.box {
+  background-color: rgb(0 0 0 / 50%);
+  border-radius: 1.35rem;
+  padding: 0.8rem 1.2rem;
+  color: #fff;
 }
 
 /* City Search */
 
+.search-position {
+  position: absolute;
+  width: 50%;
+  right: 0;
+}
+
+.search-position .input-group {
+  height: 2.8rem;
+}
+
 #city-search-form .form-control {
-  border-radius: 1.2rem 0 0 1.2rem;
+  border-radius: 1.5rem 0 0 1.5rem;
   font-size: 0.85rem;
-  padding-left: 1rem;
+  padding-left: 1.3rem;
   border: none;
+}
+
+#city-search-form input {
+  font-weight: 500;
 }
 
 #city-search-form .btn-link {
@@ -53,7 +105,8 @@ button:focus {
 }
 
 #city-search-form .btn-primary {
-  border-radius: 0 1.2rem;
+  border-radius: 0 1.5rem;
+  padding: 0.375rem 1rem;
 }
 
 #city-search-form:after {
@@ -61,7 +114,7 @@ button:focus {
   content: "";
   background-color: #fff;
   height: 1rem;
-  width: 3rem;
+  width: 5rem;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -72,33 +125,36 @@ button:focus {
   width: 1.1rem;
 }
 
-/* Box elements 
-
-.box {
-  background-color: rgb(0 0 0 / 30%);
-  border-radius: 1.35rem;
-  padding: 1rem 1.5rem;
-  color: #fff;
-}*/
-
 /* Weather current */
 
-.temperature--value {
-  font-size: 5.5rem;
-  margin-right: 0.5rem;
-  line-height: 1;
-}
-
 .weather-description {
-  font-weight: bold;
-  margin-bottom: 0;
+  font-weight: 500;
 }
 .weather-description:first-letter {
   text-transform: uppercase;
 }
+.temperature--value,
+.temperature--min,
+.temperature--max {
+  font-weight: 700;
+  font-family: "Comfortaa", sans-serif;
+}
+
+h2.temperature--value {
+  font-size: 5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.temperature--unit {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
 
 .weather-data-item {
   margin-right: 1rem;
+  white-space: nowrap;
 }
 
 .icon--humidity,
@@ -109,12 +165,6 @@ button:focus {
 
 .icon--current {
   width: 11rem;
-}
-
-.temperature--unit {
-  font-weight: bold;
-  font-size: 1.4rem;
-  margin-top: 0.3rem;
 }
 
 /* Footer creds */
@@ -131,6 +181,11 @@ hr {
 
 /* 5 Day Forecast */
 
+.card {
+  border-radius: 1.2rem;
+  border: none;
+}
+
 .forecast-item span {
   padding: 0 0.8rem;
 }
@@ -141,6 +196,7 @@ hr {
 
 .temperature--max {
   font-size: 2rem;
+  margin-top: 0.6rem;
 }
 
 .temperature--min {
@@ -148,7 +204,7 @@ hr {
   opacity: 0.6;
   border-right: 1px solid lightgray;
   padding-right: 0.5rem;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 
 .icon--next {

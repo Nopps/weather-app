@@ -13,74 +13,77 @@
     />
     <link rel="stylesheet" href="src/styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+    </style>
   </head>
-  <body class="bg-light">
-    <div class="container bg-white border p-0 mt-3" style="max-width: 500px">
+  <body class="bg-white">
+    <div class="container app-container p-0 mt-3" style="max-width: 500px">
       <div
-        id="bg-img"
-        class="container bg-img p-4"
-        style="
-          background-image: url(src/clouds.jpg);
-        "
+        class="container g-0"
       >
-        <div class="row">
-          <div class="col-5 box box--location-time">
-            <span class="d-flex align-items-baseline">
-              <h1 id="element-city">Finding city...</h1>
-            </span>
-            <span id="current-time"></span>
-          </div>
-          <div class="col-7">
-            <form id="city-search-form" class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="input-city"
-                placeholder="Enter city"
-                aria-describedby="button-search"
-                autocomplete="off"
-                autofocus="on"
-              />
-              <button
-                class="btn btn-link"
-                type="button"
-                id="button-locate"
-                aria-label="Find my location"
-              >
-                <img src="src/icon_locate.svg" class="icon--locate" />
-              </button>
-              <button
-                class="btn btn-primary"
-                type="submit"
-                id="button-search"
-                aria-label="Search city"
-              >
-                <img src="src/icon_search.svg" class="icon--search" />
-              </button>
-            </form>
-          </div>
-        </div>
-        <div class="row d-flex align-items-end mt-4">
-          <div class="col-6 box box--current-weather">
-            <p class="weather-description" id="weather-description">
-            </p>
-            <div class="temperature d-flex align-items-top">
-              <h2 class="temperature--value" id="temperature-value">--</h2>
-              <span class="temperature--unit">ºC</span>
+        <div class="bg-img position-absolute" id="bg-img" style="
+          background-image: url(src/clouds.jpg);
+        "></div>
+        <div class="container p-4 pb-0">
+          <div class="row g-0 position-relative">
+            <div class="col-8 mt-4 box box--location">
+              <h1 id="element-city" class="loading-small">Finding city...</h1>
+              <span id="current-time" class="small"></span>
             </div>
-            <div class="d-flex justify-content-start weather-data">
-              <span class="d-flex align-items-center weather-data-item"
-                ><img src="src/icon_humidity.svg" class="icon--humidity" />
-                <span id="humidity-value">-</span></span
-              >
-              <span class="d-flex align-items-center weather-data-item"
-                ><img src="src/icon_windspeed.svg" class="icon--windspeed" />
-                <span id="windspeed-value">-</span></span
-              >
+            <div class="search-position">
+              <form id="city-search-form" class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="input-city"
+                  placeholder="Enter city"
+                  aria-describedby="button-search"
+                  autocomplete="off"
+                  autofocus="on"
+                />
+                <button
+                  class="btn btn-link"
+                  type="button"
+                  id="button-locate"
+                  aria-label="Find my location"
+                >
+                  <img src="src/icon_locate.svg" class="icon--locate" />
+                </button>
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  id="button-search"
+                  aria-label="Search city"
+                >
+                  <img src="src/icon_search.svg" class="icon--search" />
+                </button>
+              </form>
             </div>
           </div>
-          <div class="col-6 d-flex">
-            <img src="src/placeholder.svg" id="icon-current" class="icon--current" />
+          <div class="row g-0 d-flex align-items-end mt-4 position-relative">
+            <div class="col-6 box box--current-weather">
+              <p class="weather-description" id="weather-description">
+              </p>
+              <div class="temperature d-flex align-items-top">
+                <h2 class="temperature--value" id="temperature-value">--</h2>
+                <span class="temperature--unit">ºC</span>
+              </div>
+              <div class="d-flex justify-content-start weather-data">
+                <span class="d-flex align-items-center weather-data-item"
+                  ><img src="src/icon_humidity.svg" class="icon--humidity" />
+                  <span id="humidity-value">-</span></span
+                >
+                <span class="d-flex align-items-center weather-data-item"
+                  ><img src="src/icon_windspeed.svg" class="icon--windspeed" />
+                  <span id="windspeed-value">-</span></span
+                >
+              </div>
+            </div>
+            <div class="col-6 d-flex justify-content-center">
+              <img src="src/icon_loading-sun.svg" id="icon-current" class="icon--current" />
+            </div>
           </div>
         </div>
       </div>

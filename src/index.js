@@ -2,34 +2,21 @@
 
 let currentDateTime = new Date();
 
-function formatDate(dateInput) {
-  let weekDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Fridat",
-    "Saturday",
-  ];
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+let weekDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
-  let date = dateInput.getDate();
+let city = "";
+let temp = "";
+
+function formatDate(dateInput) {
   let weekDay = weekDays[dateInput.getDay()];
-  let month = months[dateInput.getMonth()];
   let hrs = dateInput.getHours();
   if (hrs < 10) {
     hrs = `0${hrs}`;
@@ -39,7 +26,7 @@ function formatDate(dateInput) {
     mins = `0${mins}`;
   }
 
-  let formattedDate = `${weekDay}, ${date}. ${month}, ${hrs}:${mins}`;
+  let formattedDate = `Last updated: ${weekDay} at ${hrs}:${mins}`;
 
   return formattedDate;
 }
@@ -52,17 +39,8 @@ elemementDateTime.innerHTML = formatDate(currentDateTime);
 function formatWeekDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
 
-  return days[day];
+  return weekDays[day];
 }
 
 function formatDdMm(timestamp) {
@@ -152,9 +130,6 @@ function displayForecast(response) {
 
 // Show weather for searched city
 
-let city = "";
-let temp = "";
-
 function getForecastCoord(coordinates) {
   let apiKey = "c27d962bdd519287d55f21aff23bb4a0";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
@@ -179,6 +154,7 @@ function handleResultsForCity(response) {
   let searchCity = document.querySelector("#input-city");
 
   elementCity.innerHTML = city;
+  elementCity.classList.remove("loading-small");
   elementDescription.innerHTML = description;
   elementTemp.innerHTML = temp;
   elementHumidity.innerHTML = `${humidity} %`;
@@ -217,8 +193,8 @@ function imgQuery() {
 
 function getCity(event) {
   event.preventDefault();
-  //let city = document.querySelector("#input-city").value;
-  let city = "helsinki"; //for testing
+  let city = document.querySelector("#input-city").value;
+  //let city = "helsinki"; //for testing
   let apiKey = "c27d962bdd519287d55f21aff23bb4a0";
   let unit = "metric";
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
@@ -238,7 +214,6 @@ function getLocationWeather(position) {
   let apiKey = "c27d962bdd519287d55f21aff23bb4a0";
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndPoint}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(handleResultsForCity);
 }
 
@@ -246,7 +221,7 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocationWeather);
 }
 
-//window.addEventListener("load", getLocation);
-window.addEventListener("load", getCity); // for testing
+window.addEventListener("load", getLocation);
+//window.addEventListener("load", getCity); // for testing
 let locate = document.querySelector("#button-locate");
 locate.addEventListener("click", getLocation);
