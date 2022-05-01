@@ -232,7 +232,22 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocationWeather);
 }
 
+function findingLocation(event) {
+  let elementCity = document.querySelector("#element-city");
+  let elementIcon = document.querySelector("#icon-current");
+  let elementHumidity = document.querySelector("#humidity-value");
+  let elementWindspeed = document.querySelector("#windspeed-value");
+  let elementTemp = document.querySelector("#temperature-value");
+  elementCity.innerHTML = "Finding city...";
+  elementCity.classList.add("loading-small");
+  elementIcon.setAttribute("src", `src/icon_loading-sun.svg`);
+  elementHumidity.innerHTML = "- %";
+  elementWindspeed.innerHTML = "- m/s";
+  elementTemp.innerHTML = "--";
+}
+
 //window.addEventListener("load", getLocation);
 //window.addEventListener("load", getCity); // for testing
 let locate = document.querySelector("#button-locate");
 locate.addEventListener("click", getLocation);
+locate.addEventListener("click", findingLocation);

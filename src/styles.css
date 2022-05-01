@@ -168,7 +168,7 @@ button:focus {
   /* continuos white input bg with funky primary button */
   content: "";
   background-color: #fff;
-  height: 1rem;
+  height: 1.3rem;
   width: 5rem;
   position: absolute;
   bottom: 0;
