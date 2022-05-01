@@ -41,7 +41,8 @@ elemementDateTime.innerHTML = formatDate(currentDateTime);
 
 // Forecast 5 days
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let elementForecast = document.querySelector("#forecast");
   let forecastHTML = "";
   let days = ["Tomorrow", "Sat", "Sun", "Mon", "Tue"];
@@ -74,6 +75,12 @@ function displayForecast() {
 let city = "";
 let temp = "";
 
+function getForecastCoord(coordinates) {
+  let apiKey = "c27d962bdd519287d55f21aff23bb4a0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function handleResultsForCity(response) {
   city = response.data.name;
   temp = Math.round(response.data.main.temp);
@@ -100,6 +107,8 @@ function handleResultsForCity(response) {
 
   searchCity.value = city;
   imgQuery();
+
+  getForecastCoord(response.data.coord);
 }
 
 // Get city photo
@@ -189,5 +198,3 @@ function convertF2C(event) {
 
 let buttonC = document.querySelector("#click-celcius");
 buttonC.addEventListener("click", convertF2C);
-
-displayForecast();
