@@ -150,6 +150,7 @@ function handleResultsForCity(response) {
   let elementHumidity = document.querySelector("#humidity-value");
   let elementWindspeed = document.querySelector("#windspeed-value");
   let elementIcon = document.querySelector("#icon-current");
+  let elementBody = document.querySelector("body");
 
   let searchCity = document.querySelector("#input-city");
 
@@ -160,7 +161,8 @@ function handleResultsForCity(response) {
   elementHumidity.innerHTML = `${humidity} %`;
   elementWindspeed.innerHTML = `${windspeed} m/s`;
   elementIcon.setAttribute("src", `src/${icon}.svg`);
-
+  element.setAttribute("class", "");
+  elementBody.classList.add(`box-color--${icon}`);
   searchCity.value = city;
   imgQuery();
 
@@ -221,7 +223,7 @@ function getLocation(event) {
   navigator.geolocation.getCurrentPosition(getLocationWeather);
 }
 
-window.addEventListener("load", getLocation);
+//window.addEventListener("load", getLocation);
 //window.addEventListener("load", getCity); // for testing
 let locate = document.querySelector("#button-locate");
 locate.addEventListener("click", getLocation);
