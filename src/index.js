@@ -3,7 +3,15 @@
 let currentDateTime = new Date();
 
 function formatDate(dateInput) {
-  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Fridat",
+    "Saturday",
+  ];
   let months = [
     "Jan",
     "Feb",
@@ -77,6 +85,8 @@ function displayForecast(response) {
   let forecast = response.data.daily;
   let elementForecast = document.querySelector("#forecast");
   let forecastHTML = "";
+  let elementForecastFirst = document.querySelector("#forecast-first");
+  let forecastHTMLFirst = "";
 
   forecast.slice(2).forEach(function (forecastDay, index) {
     if (index < 4) {
@@ -106,7 +116,38 @@ function displayForecast(response) {
     }
   });
 
+  forecast.slice(1).forEach(function (forecastDay, index) {
+    if (index < 1) {
+      forecastHTMLFirst += ` 
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-6">
+          <div class="card-body">
+            <h3 class="card-title">Tomorrow</h3>
+            <p class="card-text">${formatWeekDay(forecastDay.dt)}, ${formatDdMm(
+        forecastDay.dt
+      )}</p>
+          </div>
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-end forecast-item">
+              <span class="temperature--min">${Math.round(
+                forecastDay.temp.min
+              )}</span>
+              <span class="temperature--max">${Math.round(
+                forecastDay.temp.max
+              )}</span>
+              <span class="temperature--icon"><img src="src/${
+                forecastDay.weather[0].icon
+              }.svg" class="icon--next" /></span>
+            </div>
+      </div>
+    </div>
+  `;
+    }
+  });
+
   elementForecast.innerHTML = forecastHTML;
+  elementForecastFirst.innerHTML = forecastHTMLFirst;
 }
 
 // Show weather for searched city
