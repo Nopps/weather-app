@@ -41,30 +41,54 @@ elemementDateTime.innerHTML = formatDate(currentDateTime);
 
 // Forecast 5 days
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 function displayForecast(response) {
+  let forecast = response.data.daily;
   console.log(response.data.daily);
   let elementForecast = document.querySelector("#forecast");
   let forecastHTML = "";
-  let days = ["Tomorrow", "Sat", "Sun", "Mon", "Tue"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML += ` 
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-6">
           <div class="card-body">
-            <h3 class="card-title">${day}</h3>
+            <h3 class="card-title">${formatDay(forecastDay.dt)}</h3>
             <p class="card-text">Sat 16.04.</p>
           </div>
         </div>
-        <div class="col-6 d-flex align-items-center justify-content-evenly">
-          <span class="align-middle temperature--next">17ºc</span>
-          <img src="src/02d.svg" class="icon--next" />
-        </div>
+        <div class="col-6 d-flex align-items-center justify-content-end forecast-item">
+              <span class="temperature--min">${Math.round(
+                forecastDay.temp.min
+              )}</span>
+              <span class="temperature--max">${Math.round(
+                forecastDay.temp.max
+              )}</span>
+              <span class="temperature--icon"><img src="src/${
+                forecastDay.weather[0].icon
+              }.svg" class="icon--next" /></span>
+            </div>
       </div>
     </div>
   `;
+    }
   });
 
   elementForecast.innerHTML = forecastHTML;
@@ -137,7 +161,8 @@ function imgQuery() {
 
 function getCity(event) {
   event.preventDefault();
-  let city = document.querySelector("#input-city").value;
+  //let city = document.querySelector("#input-city").value;
+  let city = "helsinki"; //for testing
   let apiKey = "c27d962bdd519287d55f21aff23bb4a0";
   let unit = "metric";
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
@@ -167,6 +192,7 @@ function getLocation(event) {
 }
 
 //window.addEventListener("load", getLocation);
+window.addEventListener("load", getCity); // for testing
 let locate = document.querySelector("#button-locate");
 locate.addEventListener("click", getLocation);
 

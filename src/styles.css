@@ -149,8 +149,24 @@ hr {
 
 /* ------------ END NEW CUSTOM CSS -------------- */
 
-.temperature--next {
+.forecast-item span {
+  padding: 0 0.8rem;
+}
+
+.forecast-item span.temperature--icon {
+  padding-right: 1.5rem;
+}
+
+.temperature--max {
   font-size: 2rem;
+}
+
+.temperature--min {
+  font-size: 1.2rem;
+  opacity: 0.6;
+  border-right: 1px solid lightgray;
+  padding-right: 0.5rem;
+  margin-top: 0.3rem;
 }
 
 .icon--next {
