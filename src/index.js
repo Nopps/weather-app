@@ -151,6 +151,8 @@ function handleResultsForCity(response) {
   let elementWindspeed = document.querySelector("#windspeed-value");
   let elementIcon = document.querySelector("#icon-current");
   let elementBody = document.querySelector("body");
+  let elementWindspeedIcon = document.querySelector(".icon--windspeed");
+  let elementHumidityIcon = document.querySelector(".icon--humidity");
 
   let searchCity = document.querySelector("#input-city");
 
@@ -161,8 +163,15 @@ function handleResultsForCity(response) {
   elementHumidity.innerHTML = `${humidity} %`;
   elementWindspeed.innerHTML = `${windspeed} m/s`;
   elementIcon.setAttribute("src", `src/${icon}.svg`);
-  element.setAttribute("class", "");
+  elementBody.setAttribute("class", "");
   elementBody.classList.add(`box-color--${icon}`);
+  if (icon === "13d") {
+    elementWindspeedIcon.setAttribute("src", `src/icon_windspeed-blue.svg`);
+    elementHumidityIcon.setAttribute("src", `src/icon_humidity-blue.svg`);
+  } else {
+    elementWindspeedIcon.setAttribute("src", `src/icon_windspeed.svg`);
+    elementHumidityIcon.setAttribute("src", `src/icon_humidity.svg`);
+  }
   searchCity.value = city;
   imgQuery();
 
