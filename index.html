@@ -64,28 +64,9 @@
           <div class="col-6 box box--current-weather">
             <p class="weather-description" id="weather-description">
             </p>
-            <div class="temperature d-flex align-items-center">
+            <div class="temperature d-flex align-items-top">
               <h2 class="temperature--value" id="temperature-value">--</h2>
-              <div
-                class="btn-group unit-switcher"
-                role="group"
-                aria-label="Temperature unit celcius or fahrenheit"
-              >
-                <button
-                  id="click-celcius"
-                  type="button"
-                  class="btn btn-secondary temperature--unit unit--active"
-                >
-                  ºC
-                </button>
-                <button
-                  id="click-fahrenheit"
-                  type="button"
-                  class="btn btn-secondary temperature--unit"
-                >
-                  ºF
-                </button>
-              </div>
+              <span class="temperature--unit">ºC</span>
             </div>
             <div class="d-flex justify-content-start weather-data">
               <span class="d-flex align-items-center weather-data-item"
@@ -98,7 +79,7 @@
               >
             </div>
           </div>
-          <div class="col-6 d-flex flex-row-reverse">
+          <div class="col-6 d-flex">
             <img src="src/placeholder.svg" id="icon-current" class="icon--current" />
           </div>
         </div>

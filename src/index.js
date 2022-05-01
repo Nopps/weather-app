@@ -179,10 +179,9 @@ searchCity.addEventListener("submit", getCity);
 function getLocationWeather(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let units = "metric";
   let apiKey = "c27d962bdd519287d55f21aff23bb4a0";
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${apiEndPoint}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `${apiEndPoint}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(handleResultsForCity);
 }
@@ -195,32 +194,3 @@ function getLocation(event) {
 window.addEventListener("load", getCity); // for testing
 let locate = document.querySelector("#button-locate");
 locate.addEventListener("click", getLocation);
-
-// Convert temperature
-
-function convertC2F(event) {
-  event.preventDefault();
-  let conversion = Math.round(temp * 1.8 + 32);
-  let elementTemperature = document.querySelector("#temperature-value");
-  elementTemperature.innerHTML = conversion;
-  let buttonF = document.querySelector("#click-fahrenheit");
-  let buttonC = document.querySelector("#click-celcius");
-  buttonF.classList.add("unit--active");
-  buttonC.classList.remove("unit--active");
-}
-
-let buttonF = document.querySelector("#click-fahrenheit");
-buttonF.addEventListener("click", convertC2F);
-
-function convertF2C(event) {
-  event.preventDefault();
-  let elementTemperature = document.querySelector("#temperature-value");
-  elementTemperature.innerHTML = temp;
-  let buttonF = document.querySelector("#click-fahrenheit");
-  let buttonC = document.querySelector("#click-celcius");
-  buttonF.classList.remove("unit--active");
-  buttonC.classList.add("unit--active");
-}
-
-let buttonC = document.querySelector("#click-celcius");
-buttonC.addEventListener("click", convertF2C);

@@ -111,28 +111,10 @@ button:focus {
   width: 11rem;
 }
 
-/* Temperature unit switcher */
-
-.unit-switcher {
-  margin-top: 1.5rem;
-}
-
-.unit-switcher .btn {
-  opacity: 0.6;
-  border-radius: 0.8rem;
-  background: rgb(0 0 0 / 20%);
-  border: rgb(0 0 0 / 20%);
+.temperature--unit {
   font-weight: bold;
-  margin: 0 0.1rem;
-}
-
-.unit-switcher .btn:hover {
-  background: rgb(0 0 0 / 25%);
-  border: rgb(0 0 0 / 25%);
-}
-
-.unit-switcher .btn.unit--active {
-  opacity: 1;
+  font-size: 1.4rem;
+  margin-top: 0.3rem;
 }
 
 /* Footer creds */
@@ -147,7 +129,7 @@ hr {
   margin: 0.5rem auto;
 }
 
-/* ------------ END NEW CUSTOM CSS -------------- */
+/* 5 Day Forecast */
 
 .forecast-item span {
   padding: 0 0.8rem;
