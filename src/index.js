@@ -41,7 +41,7 @@ elemementDateTime.innerHTML = formatDate(currentDateTime);
 
 // Forecast 5 days
 
-function formatDay(timestamp) {
+function formatWeekDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = [
@@ -57,21 +57,36 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+function formatDdMm(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDate();
+  if (day < 10) {
+    day = `0${day}`;
+  }
+  let month = date.getMonth() + 1;
+  if (month < 10) {
+    month = `0${month}`;
+  }
+
+  let DdMm = `${day}.${month}.`;
+
+  return DdMm;
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
-  console.log(response.data.daily);
   let elementForecast = document.querySelector("#forecast");
   let forecastHTML = "";
 
-  forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+  forecast.slice(2).forEach(function (forecastDay, index) {
+    if (index < 4) {
       forecastHTML += ` 
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-6">
           <div class="card-body">
-            <h3 class="card-title">${formatDay(forecastDay.dt)}</h3>
-            <p class="card-text">Sat 16.04.</p>
+            <h3 class="card-title">${formatWeekDay(forecastDay.dt)}</h3>
+            <p class="card-text">${formatDdMm(forecastDay.dt)}</p>
           </div>
         </div>
         <div class="col-6 d-flex align-items-center justify-content-end forecast-item">
