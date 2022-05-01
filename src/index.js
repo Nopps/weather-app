@@ -246,7 +246,7 @@ function findingLocation(event) {
   elementTemp.innerHTML = "--";
 }
 
-//window.addEventListener("load", getLocation);
+window.addEventListener("load", getLocation);
 //window.addEventListener("load", getCity); // for testing
 let locate = document.querySelector("#button-locate");
 locate.addEventListener("click", getLocation);
